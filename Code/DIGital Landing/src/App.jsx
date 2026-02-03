@@ -205,10 +205,25 @@ function LandingPage()
             <div className="footer-section">
               <h4>Connect</h4>
               <ul>
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">Team Website</a></li>
-                <li><a href="#">LinkedIn</a></li>
-              </ul>
+                <li>
+                  <a 
+                    href="https://github.com/Devin-Jay/DIGital" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                  GitHub
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://sce.nau.edu/capstone/projects/CS/2026/DIGital_F25/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                  Team Website
+                  </a>
+                </li>
+                </ul>
             </div>
             <div className="footer-section nau-section">
               <img src={nauLogo} alt="Northern Arizona University" className="nau-logo" />
