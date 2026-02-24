@@ -1,0 +1,79 @@
+name: Build/Update Unity WebGL
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - Automate-WebGL-Build
+
+jobs:
+  build:
+    name: Build Unity WebGL
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: DIGital/Library
+          key: Library-WebGL-${{ hashFiles('DIGital/Assets/**', 'DIGital/Packages/**', 'DIGital/ProjectSettings/**') }}
+          restore-keys: |
+            Library-WebGL-
+            Library-
+
+      - name: Activate Unity License
+        uses: buildalon/activate-unity-license@v1
+        with:
+          license: 'Personal'
+          username: ${{ secrets.UNITY_EMAIL }}
+          password: ${{ secrets.UNITY_PASSWORD }}
+
+      - name: Build Unity WebGL
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: DIGital
+          targetPlatform: WebGL
+          buildName: WebGL
+          buildsPath: build
+          unityVersion: 6000.2.12f1
+
+      - name: Replace WebGL files in repo
+        run: |
+          BUILD_SRC="build/WebGL/WebGL/Build"
+          BUILD_DEST="Code/DIGital Landing/public/DemoBuild"
+
+          cp "$BUILD_SRC/WebGL.data.br"         "$BUILD_DEST/WebGL.data.br"
+          cp "$BUILD_SRC/WebGL.framework.js.br" "$BUILD_DEST/WebGL.framework.js.br"
+          cp "$BUILD_SRC/WebGL.loader.js"       "$BUILD_DEST/WebGL.loader.js"
+          cp "$BUILD_SRC/WebGL.wasm.br"         "$BUILD_DEST/WebGL.wasm.br"
+
+          # Update StreamingAssets/aa
+          rm -rf "$BUILD_DEST/StreamingAssets/aa"
+          cp -r "build/WebGL/WebGL/StreamingAssets/aa" "$BUILD_DEST/StreamingAssets/aa"
+
+      - name: Check if build files actually changed
+        id: check_changes
+        run: |
+          git diff --quiet "Code/DIGital Landing/public/DemoBuild/" \
+            && echo "changed=false" >> $GITHUB_OUTPUT \
+            || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "Code/DIGital Landing/public/DemoBuild/"
+          git commit -m "chore: auto-update Unity WebGL build [skip ci]"
+          git push
