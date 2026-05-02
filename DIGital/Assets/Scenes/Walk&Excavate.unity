@@ -1711,6 +1711,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 73548252}
+  - component: {fileID: 73548253}
   m_Layer: 6
   m_Name: ciego_blind_surface_artifact
   m_TagString: Untagged
@@ -1734,6 +1735,22 @@ Transform:
   - {fileID: 1806979558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 6.434, y: -0.413, z: 7.342}
+--- !u!114 &73548253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73548251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 0.08
+  outlineColor: {r: 0, g: 1, b: 0.16108775, a: 1}
+  createOnStart: 1
 --- !u!1 &74725324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3989,6 +4006,7 @@ GameObject:
   - component: {fileID: 177273094}
   - component: {fileID: 177273093}
   - component: {fileID: 177273092}
+  - component: {fileID: 177273095}
   m_Layer: 6
   m_Name: mochica_pottery_dog_sa
   m_TagString: Untagged
@@ -4058,6 +4076,22 @@ Transform:
   - {fileID: 800990596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &177273095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177273091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 0.06
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1001 &184076271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4647,6 +4681,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_24
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -4661,7 +4699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.486
+      value: 13.695999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5850,6 +5888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_12
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -5864,7 +5906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.36
+      value: -16.46
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5872,7 +5914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -44.99
+      value: -45.25
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8232,6 +8274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_16
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -8254,7 +8300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.46
+      value: -45.72013
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8335,6 +8381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_26
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -8349,7 +8399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.41
+      value: 13.619999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10639,6 +10689,7 @@ GameObject:
   - component: {fileID: 496076163}
   - component: {fileID: 496076162}
   - component: {fileID: 496076161}
+  - component: {fileID: 496076164}
   m_Layer: 6
   m_Name: face_molded2_sa
   m_TagString: Untagged
@@ -10708,6 +10759,22 @@ Transform:
   - {fileID: 1858569888}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496076164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496076160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 1
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1001 &498684721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11811,6 +11878,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_27
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -11825,7 +11896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.39
+      value: 13.599999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12524,6 +12595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_28
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -12538,7 +12613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.4
+      value: 13.609999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12627,6 +12702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_5
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -12641,7 +12720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.296
+      value: -17.48
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12649,7 +12728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.704
+      value: -23.7
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12941,6 +13020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_1
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -12955,7 +13038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.194
+      value: -12.375
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12963,7 +13046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.35
+      value: -15.057
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14141,6 +14224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_7
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -14155,15 +14242,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.39
+      value: -17.573997
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.04
+      value: -30.035995
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15092,6 +15179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_17
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -15106,7 +15197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.34999847
+      value: -0.35002136
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15114,23 +15205,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.459824
+      value: -45.787186
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.008746468
+      value: -0.00853781
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0087466175
+      value: 0.008537958
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7070527
+      value: -0.7070553
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7070527
+      value: -0.7070553
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15142,7 +15233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -181.417
+      value: -181.384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17143,6 +17234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_32
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -17157,7 +17252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.42
+      value: 12.85
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17165,7 +17260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.03
+      value: -10.85
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18914,6 +19009,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_34
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -18932,11 +19031,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.88
+      value: -9.659999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20157,6 +20256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_14
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -20179,7 +20282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.447
+      value: -45.70713
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20487,6 +20590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_3
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -20501,7 +20608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.968
+      value: -14.18
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20509,7 +20616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.907
+      value: -19.72
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21019,6 +21126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_22
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -21033,7 +21144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.47
+      value: 13.68
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22129,6 +22240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_11
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -22143,15 +22258,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.58
+      value: -17.763998
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -42.69
+      value: -42.685993
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22268,6 +22383,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_23
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -22282,7 +22401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.491
+      value: 13.700999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22605,6 +22724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_10
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -22619,15 +22742,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.53
+      value: -17.713999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39.49
+      value: -39.485996
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22881,6 +23004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_2
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -22895,7 +23022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.194
+      value: -12.375
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22903,7 +23030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.46
+      value: -18.167
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23170,6 +23297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_6
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -23184,15 +23315,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.34
+      value: -17.523998
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.86
+      value: -26.855995
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24287,6 +24418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_19
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -24301,7 +24436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.95
+      value: 5.950035
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24309,23 +24444,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.342
+      value: -45.67308
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0012410649
+      value: -0.0010323906
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0012412132
+      value: 0.0010325392
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071057
+      value: -0.70710605
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071057
+      value: -0.70710605
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24337,7 +24472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -180.201
+      value: -180.167
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25408,6 +25543,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_8
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -25422,15 +25561,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.436
+      value: -17.619999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.161
+      value: -33.156994
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26868,6 +27007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_18
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -26882,7 +27025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.783
+      value: 2.78302
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26890,23 +27033,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.382
+      value: -45.711205
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.008746468
+      value: -0.00853781
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0087466175
+      value: 0.008537958
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7070527
+      value: -0.7070553
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7070527
+      value: -0.7070553
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -26918,7 +27061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -181.417
+      value: -181.384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28720,6 +28863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_4
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -28734,7 +28881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.756905
+      value: -16.89
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -28742,7 +28889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.713192
+      value: -20.7
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28974,6 +29121,7 @@ GameObject:
   - component: {fileID: 1223987801}
   - component: {fileID: 1223987800}
   - component: {fileID: 1223987799}
+  - component: {fileID: 1223987802}
   m_Layer: 6
   m_Name: moche_urn_sa
   m_TagString: Untagged
@@ -29043,6 +29191,22 @@ Transform:
   - {fileID: 1862683669}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1223987802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223987798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 1.3
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1 &1225070329
 GameObject:
   m_ObjectHideFlags: 0
@@ -29975,6 +30139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_31
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -29989,7 +30157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.39
+      value: 13.599999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31355,6 +31523,7 @@ GameObject:
   - component: {fileID: 1345967170}
   - component: {fileID: 1345967169}
   - component: {fileID: 1345967168}
+  - component: {fileID: 1345967171}
   m_Layer: 6
   m_Name: gallinazo_face-neck-jar_sa
   m_TagString: Untagged
@@ -31424,6 +31593,22 @@ Transform:
   - {fileID: 426519923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -82.067, y: 0, z: 0}
+--- !u!114 &1345967171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345967167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 1.5
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1 &1348441162
 GameObject:
   m_ObjectHideFlags: 0
@@ -34120,6 +34305,7 @@ GameObject:
   - component: {fileID: 1505100539}
   - component: {fileID: 1505100538}
   - component: {fileID: 1505100537}
+  - component: {fileID: 1505100540}
   m_Layer: 6
   m_Name: friend_surface_artifact
   m_TagString: Untagged
@@ -34189,6 +34375,22 @@ Transform:
   - {fileID: 1714456682}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 58.413, y: -74.261, z: -53.328}
+--- !u!114 &1505100540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505100536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 0.2
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1 &1507155191
 GameObject:
   m_ObjectHideFlags: 0
@@ -35388,6 +35590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_20
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -35402,7 +35608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.21
+      value: 9.2100525
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -35410,23 +35616,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.32
+      value: -45.653
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0010188771
+      value: 0.0012275517
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0010187295
+      value: -0.001227404
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70710605
+      value: -0.7071057
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.70710605
+      value: -0.7071057
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35438,7 +35644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -179.835
+      value: -179.801
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38954,6 +39160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_9
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -38968,15 +39178,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.482
+      value: -17.665998
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.304
+      value: -36.299995
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39349,6 +39559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_33
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -39371,7 +39585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.88
+      value: -9.66
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -41113,6 +41327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_30
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -41127,7 +41345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.40004
+      value: 13.610039
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41806,6 +42024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_25
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -41820,7 +42042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.449
+      value: 13.658999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -42116,6 +42338,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_15
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -42138,7 +42364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.45
+      value: -45.710133
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46071,6 +46297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_29
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -46085,7 +46315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.41
+      value: 13.619999
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46586,6 +46816,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_13
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -46600,7 +46834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.229996
+      value: -13.23
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46608,7 +46842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.48987
+      value: -45.75
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46981,6 +47215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rope_fence_21
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -46995,7 +47233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.29
+      value: 12.56
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -47003,7 +47241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -44.62
+      value: -45.02
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 0b04803ef3e13094abcc76a3b63f9f6c, type: 3}
       propertyPath: m_LocalRotation.w
