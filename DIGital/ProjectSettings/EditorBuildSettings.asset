@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SiteSelection.unity
     guid: d798fdf019444f64c88fb475b3503a86
+  - enabled: 1
+    path: Assets/Scenes/AreaSelection.unity
+    guid: dcab998bd2a29d0498b56d84b356bd63
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 0b8008639eb690248869c3e20a246f24, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

@@ -14,6 +14,6 @@ public class SelectSite : MonoBehaviour
         }
 
         SessionManager.Instance.selectedSite = siteName;
-        SceneManager.LoadScene("Walk&Excavate");
+        SceneManager.LoadScene(siteName);
     }
 }
