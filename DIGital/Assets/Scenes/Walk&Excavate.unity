@@ -1748,8 +1748,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
   outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
-  outlineWidth: 0.1
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 0.08
+  outlineColor: {r: 0, g: 1, b: 0.16108775, a: 1}
   createOnStart: 1
 --- !u!1 &74725324
 GameObject:
@@ -4006,6 +4006,7 @@ GameObject:
   - component: {fileID: 177273094}
   - component: {fileID: 177273093}
   - component: {fileID: 177273092}
+  - component: {fileID: 177273095}
   m_Layer: 6
   m_Name: mochica_pottery_dog_sa
   m_TagString: Untagged
@@ -4075,6 +4076,22 @@ Transform:
   - {fileID: 800990596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &177273095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177273091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 0.06
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1001 &184076271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10672,6 +10689,7 @@ GameObject:
   - component: {fileID: 496076163}
   - component: {fileID: 496076162}
   - component: {fileID: 496076161}
+  - component: {fileID: 496076164}
   m_Layer: 6
   m_Name: face_molded2_sa
   m_TagString: Untagged
@@ -10741,6 +10759,22 @@ Transform:
   - {fileID: 1858569888}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496076164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496076160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 1
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1001 &498684721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29087,6 +29121,7 @@ GameObject:
   - component: {fileID: 1223987801}
   - component: {fileID: 1223987800}
   - component: {fileID: 1223987799}
+  - component: {fileID: 1223987802}
   m_Layer: 6
   m_Name: moche_urn_sa
   m_TagString: Untagged
@@ -29156,6 +29191,22 @@ Transform:
   - {fileID: 1862683669}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1223987802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223987798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 1.3
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1 &1225070329
 GameObject:
   m_ObjectHideFlags: 0
@@ -31472,6 +31523,7 @@ GameObject:
   - component: {fileID: 1345967170}
   - component: {fileID: 1345967169}
   - component: {fileID: 1345967168}
+  - component: {fileID: 1345967171}
   m_Layer: 6
   m_Name: gallinazo_face-neck-jar_sa
   m_TagString: Untagged
@@ -31541,6 +31593,22 @@ Transform:
   - {fileID: 426519923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -82.067, y: 0, z: 0}
+--- !u!114 &1345967171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345967167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 1.5
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1 &1348441162
 GameObject:
   m_ObjectHideFlags: 0
@@ -34237,6 +34305,7 @@ GameObject:
   - component: {fileID: 1505100539}
   - component: {fileID: 1505100538}
   - component: {fileID: 1505100537}
+  - component: {fileID: 1505100540}
   m_Layer: 6
   m_Name: friend_surface_artifact
   m_TagString: Untagged
@@ -34306,6 +34375,22 @@ Transform:
   - {fileID: 1714456682}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 58.413, y: -74.261, z: -53.328}
+--- !u!114 &1505100540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505100536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 0.2
+  outlineColor: {r: 0, g: 1, b: 0.16078432, a: 1}
+  createOnStart: 1
 --- !u!1 &1507155191
 GameObject:
   m_ObjectHideFlags: 0
