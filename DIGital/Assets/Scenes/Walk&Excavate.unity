@@ -1711,6 +1711,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 73548252}
+  - component: {fileID: 73548253}
   m_Layer: 6
   m_Name: ciego_blind_surface_artifact
   m_TagString: Untagged
@@ -1734,6 +1735,22 @@ Transform:
   - {fileID: 1806979558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 6.434, y: -0.413, z: 7.342}
+--- !u!114 &73548253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73548251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2110e2ec9a71f40a0857cc3553b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactOutline
+  outlineMaterial: {fileID: 2100000, guid: 1868d8eb2bef14d4bb41084fec66409c, type: 2}
+  outlineWidth: 0.1
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  createOnStart: 1
 --- !u!1 &74725324
 GameObject:
   m_ObjectHideFlags: 0
