@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: cc89f8e32ef0b174db7b3733af061245
+guid: db486b988c75d114e9b898067a89c003
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Friend
-    second: {fileID: 2800000, guid: 7bf4e24df09890c40a83856b6818b57b, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

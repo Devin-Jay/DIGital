@@ -119,10 +119,12 @@ public class ArtifactInteractable : MonoBehaviour, Interactable
         // spawn pawn red flag first
         if (redFlagPrefab != null && spawnedFlag == null)
         {
-            Vector3 spawnPosition = flagSpawnPoint != null ? flagSpawnPoint.position : transform.position;
-            Quaternion spawnRotation = flagSpawnPoint != null ? flagSpawnPoint.rotation : Quaternion.identity;
+            // Vector3 spawnPosition = flagSpawnPoint != null ? flagSpawnPoint.position : transform.position;
+            // Quaternion spawnRotation = flagSpawnPoint != null ? flagSpawnPoint.rotation : Quaternion.identity;
 
-            spawnedFlag = Instantiate(redFlagPrefab, spawnPosition, spawnRotation);
+            // spawnedFlag = Instantiate(redFlagPrefab,flagSpawnPoint);
+            spawnedFlag = Instantiate(redFlagPrefab, flagSpawnPoint.position, redFlagPrefab.transform.rotation);
+
 
             if (manager != null)
             {
@@ -172,5 +174,8 @@ public class ArtifactInteractable : MonoBehaviour, Interactable
         {
             manager.RegisterSurfaceArtifactRecorded();
         }
+
+        // TODO: @TATE any reason we don't destroy the artifact?
+        // Destroy(gameObject);
     }
 }
