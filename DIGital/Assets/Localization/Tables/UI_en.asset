@@ -273,7 +273,7 @@ MonoBehaviour:
       m_Items:
       - rid: 745707523204972611
   - m_Id: 757137585106944
-    m_Localized: 'Artifact ID: {id} | {bag} | {date}'
+    m_Localized: 'Artifact ID: {id} | {excavator} | {date}'
     m_Metadata:
       m_Items:
       - rid: 745707523204972611
