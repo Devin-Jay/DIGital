@@ -20493,7 +20493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &894078663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43790,6 +43790,7 @@ MonoBehaviour:
   surveyScriptsToDisable:
   - {fileID: 257842128}
   - {fileID: 1527703918}
+  - {fileID: 1649285445}
   excavationUIToHideDuringAnalysis:
   - {fileID: 1949259072}
   - {fileID: 2137939139}
