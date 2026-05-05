@@ -275,7 +275,7 @@ MonoBehaviour:
       m_Items:
       - rid: 745707523204972612
   - m_Id: 757137585106944
-    m_Localized: 'ID del Artefacto: {id} | {bag} | {date}'
+    m_Localized: 'ID del Artefacto: {id} | {excavator} | {date}'
     m_Metadata:
       m_Items:
       - rid: 745707523204972612
@@ -413,6 +413,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 31846202103197696
     m_Localized: 'Ingrese la clase de objeto:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34109264260657152
+    m_Localized: Entrada de usuario
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34109266890485760
+    m_Localized: "Atr\xE1s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34109210162524160
+    m_Localized: Clave de respuesta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34110989168177152
+    m_Localized: Registro del usuario
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34111043580882944
+    m_Localized: Clave de respuestas
     m_Metadata:
       m_Items: []
   references:

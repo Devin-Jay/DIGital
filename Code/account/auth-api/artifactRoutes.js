@@ -152,7 +152,7 @@ router.get('/mine/:userId', async (req, res) => {
                 cultural_affiliation, object_class, bag_number,
                 artifact_id, created_at, updated_at, user_id
          FROM artifacts
-         WHERE user_id = $1 OR user_id IS NULL
+         WHERE user_id = $1
          ORDER BY created_at DESC;
          `;
 

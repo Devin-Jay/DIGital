@@ -49,6 +49,13 @@ public class ArtifactAnalysisManager : MonoBehaviour
     [Header("Localization")]
     [SerializeField] private string table = "UI";
 
+    // artifact analysis reference buttons
+    [Header("Comparison Buttons")]
+    [SerializeField] private GameObject AnswerKeyButton;
+    [SerializeField] private GameObject UserSubmissionButton;
+    [SerializeField] private GameObject ContinueButton;
+    [SerializeField] private TMP_Text ViewModeText;
+
     // artifact pivot
     [Header("3D Preview Pivot")]
     [SerializeField] private Transform artifactPivot;
@@ -64,6 +71,10 @@ public class ArtifactAnalysisManager : MonoBehaviour
     [SerializeField] private string SelectAndAnalyze = "analysis_status_select_and_analyze";
     [SerializeField] private string DropdownLabelKey = "analysis_dropdown_label";
     [SerializeField] private string DropdownPlaceholderKey = "analysis_dropdown_placeholder";
+    [SerializeField] private string ViewModeUserSubmissionKey = "analysis_view_mode_text_user_sub";
+    [SerializeField] private string ViewModeAnswerKeyKey = "analysis_view_mode_text_answer_key";
+
+    private string _lastViewModeKey = null;
 
     // re-translation
     private enum StatusMode { None, Key, ServerError }
@@ -82,44 +93,14 @@ public class ArtifactAnalysisManager : MonoBehaviour
     private LocalizedString lsDropdownLabel;
     private LocalizedString lsDropdownPlaceholder;
 
-    // node app variables
-    [System.Serializable]
-    private class Artifact
-    {
-        public int id;
-        public string date_discovered;
-        public string investigator;
-        public string area;
-        public string unit;
-        public string layer;
-        public string site;
-        public string associated_features;
-        public string decorative_tech;
-        public string material;
-        public string firing;
-        public string paint;
-        public string cultural_affiliation;
-        public string object_class;
-        public string bag_number;
-        public string artifact_id;
-        public string created_at;
-        public string updated_at;
-        public string user_id;
-    }
-
-    [System.Serializable]
-    private class ArtifactListResponse
-    {
-        public bool ok;
-        public Artifact[] artifacts;
-        public string error;
-    }
-
     [Header("UI Panel")]
     [SerializeField] private GameObject BackgroundPanel;
 
     // local cache of artifacts
-    private List<Artifact> _artifacts = new List<Artifact>();
+    private List<ArtifactRecord> _artifacts = new List<ArtifactRecord>();
+    private ArtifactRecord currentUserSubmission;
+    private ArtifactRecord currentAnswerKey;
+    private string currentArtifactId;
 
     public GameObject CurrentActiveModel { get; private set; }
 
@@ -161,6 +142,9 @@ public class ArtifactAnalysisManager : MonoBehaviour
 
         // refresh the current status message
         RefreshStatusText();
+
+        // refresh view mode text
+        RefreshViewModeText();
     }
 
     private void RefreshStatusText()
@@ -194,10 +178,52 @@ public class ArtifactAnalysisManager : MonoBehaviour
             return;
         } */
 
-        // make input fields read only
+        Debug.Log(
+            $"[ArtifactAnalysisManager] Start() called. " +
+            $"LaunchedFromExcavation={ArtifactAnalysisLaunchContext.LaunchedFromExcavation}, " +
+            $"StartMode={ArtifactAnalysisLaunchContext.StartMode}, " +
+            $"ArtifactId={ArtifactAnalysisLaunchContext.ArtifactId}"
+        );
+
+        // set fields to read only
         SetFieldsReadOnly(true);
 
-        if( StatusText != null )
+        // set bool
+        bool launchedFromExcavation = ArtifactAnalysisLaunchContext.LaunchedFromExcavation;
+
+        if (ContinueButton != null)
+        {
+            ContinueButton.SetActive(launchedFromExcavation);
+        }
+
+        if (launchedFromExcavation)
+        {
+            SetupFromExcavationLaunch();
+            return;
+        }
+
+        // normal/final Analysis scene mode
+        if (SelectArtifact != null)
+        {
+            SelectArtifact.gameObject.SetActive(true);
+        }
+
+        if (AnswerKeyButton != null)
+        {
+            AnswerKeyButton.SetActive(true);
+        }
+
+        if (UserSubmissionButton != null)
+        {
+            UserSubmissionButton.SetActive(false);
+        }
+
+        if (ViewModeText != null)
+        {
+            ViewModeText.text = "";
+        }
+
+        if (StatusText != null)
         {
             SetStatus(LoadingList);
         }
@@ -292,13 +318,23 @@ public class ArtifactAnalysisManager : MonoBehaviour
         }
 
         // select artifact
-        Artifact selectedArtifact = _artifacts[artifactIndex];
-        PopulateUI(selectedArtifact);
+        ArtifactRecord selectedArtifact = _artifacts[artifactIndex];
 
-        // hide background panel TEMP WORKAROUND TO SHOW 3D MODEL
-        if( BackgroundPanel != null )
+        currentUserSubmission = selectedArtifact;
+        currentAnswerKey = null;
+        currentArtifactId = selectedArtifact.artifact_id;
+
+        PopulateUI(selectedArtifact);
+        SetViewMode(ViewModeUserSubmissionKey);
+
+        if (UserSubmissionButton != null)
         {
-            BackgroundPanel.SetActive(false);
+            UserSubmissionButton.SetActive(true);
+        }
+
+        if (AnswerKeyButton != null)
+        {
+            AnswerKeyButton.SetActive(true);
         }
 
         if( StatusText != null )
@@ -323,7 +359,7 @@ public class ArtifactAnalysisManager : MonoBehaviour
         {
             if( field == null ) continue;
             field.readOnly = readOnly;
-            field.interactable = !readOnly;
+            field.interactable = true;
         }
 
         if (ArtifactIdDropdown != null)
@@ -352,6 +388,12 @@ public class ArtifactAnalysisManager : MonoBehaviour
     // clear fields when placeholder is selected
     private void ClearUI()
     {
+        // reset comparison
+        currentUserSubmission = null;
+        currentAnswerKey = null;
+        currentArtifactId = null;
+        SetViewMode("");
+
         DateDiscoveredInput.text = "";
         InvestigatorInput.text = "";
         AreaInput.text = "";
@@ -383,6 +425,11 @@ public class ArtifactAnalysisManager : MonoBehaviour
         if (BackgroundPanel != null)
         {
             BackgroundPanel.SetActive(true);
+        }
+
+        if (UserSubmissionButton != null)
+        {
+            UserSubmissionButton.SetActive(false);
         }
     }
 
@@ -451,7 +498,7 @@ public class ArtifactAnalysisManager : MonoBehaviour
             }
 
             // get artifact list
-            _artifacts = new List<Artifact>(response.artifacts);
+            _artifacts = new List<ArtifactRecord>(response.artifacts);
 
             if( _artifacts.Count == 0 )
             {
@@ -509,6 +556,7 @@ public class ArtifactAnalysisManager : MonoBehaviour
             };
 
             string label = lsDropdownLabel.GetLocalizedString();
+            Debug.Log($"[ArtifactAnalysisManager] Dropdown option added: {label}");
             options.Add(new TMP_Dropdown.OptionData(label));
         }
 
@@ -521,8 +569,15 @@ public class ArtifactAnalysisManager : MonoBehaviour
     }
 
     // populate input fields
-    private void PopulateUI(Artifact artifact)
+    private void PopulateUI(ArtifactRecord artifact)
     {
+        if (artifact == null)
+        {
+            ClearUI();
+            SetStatus(NoArtifactData);
+            return;
+        }
+
         // format date
         if (!string.IsNullOrEmpty(artifact.date_discovered))
         {
@@ -548,15 +603,21 @@ public class ArtifactAnalysisManager : MonoBehaviour
         CulturalAffiliationInput.text = artifact.cultural_affiliation;
         ObjectClassInput.text = artifact.object_class;
         BagNumberInput.text = artifact.bag_number;
+
         SetArtifactIdDropdown(artifact.artifact_id);
         ShowModelForArtifact(artifact);
+
+        if (BackgroundPanel != null)
+        {
+            BackgroundPanel.SetActive(false);
+        }
     }
 
-    private void ShowModelForArtifact(Artifact artifact)
+    private void ShowModelForArtifact(ArtifactRecord artifact)
     {
         // turn off all models referenced by the registry (so only one shows)
         if (modelRegistry != null)
-        modelRegistry.HideAll();
+            modelRegistry.HideAll();
 
         // hide default model (optional if we use one later)
         if (defaultModel != null)
@@ -579,6 +640,13 @@ public class ArtifactAnalysisManager : MonoBehaviour
         if (model != null)
         {
             model.SetActive(true);
+
+            Debug.Log(
+                $"[ArtifactAnalysisManager] Activated model '{model.name}' " +
+                $"activeSelf={model.activeSelf}, activeInHierarchy={model.activeInHierarchy}, " +
+                $"parent={(model.transform.parent != null ? model.transform.parent.name : "none")}"
+            );
+
             CurrentActiveModel = model;
             SetupPivotWithoutMovingModel(CurrentActiveModel);
             return;
@@ -586,6 +654,7 @@ public class ArtifactAnalysisManager : MonoBehaviour
 
         // fallback if no match
         Debug.LogWarning($"[ArtifactAnalysisManager] No model found for artifact_id '{id}'. Using default model.");
+        
         if (defaultModel != null)
         {
             defaultModel.SetActive(true);
@@ -618,5 +687,190 @@ public class ArtifactAnalysisManager : MonoBehaviour
 
         // parent the model to the pivot
         model.transform.SetParent(artifactPivot, worldPositionStays: true);
+    }
+
+    // setup analysis scene if launched from excavation
+    private void SetupFromExcavationLaunch()
+    {
+        Debug.Log(
+            $"[ArtifactAnalysisManager] SetupFromExcavationLaunch() called. " +
+            $"ArtifactId={ArtifactAnalysisLaunchContext.ArtifactId}, " +
+            $"HasUserSubmission={ArtifactAnalysisLaunchContext.UserSubmission != null}"
+        );
+
+        currentUserSubmission = ArtifactAnalysisLaunchContext.UserSubmission;
+        currentAnswerKey = null;
+        currentArtifactId = ArtifactAnalysisLaunchContext.ArtifactId;
+
+        if (SelectArtifact != null)
+        {
+            SelectArtifact.gameObject.SetActive(false);
+        }
+
+        bool hasUserSubmission = currentUserSubmission != null;
+
+        if (AnswerKeyButton != null)
+        {
+            AnswerKeyButton.SetActive(hasUserSubmission);
+        }
+
+        if (UserSubmissionButton != null)
+        {
+            UserSubmissionButton.SetActive(hasUserSubmission);
+        }
+
+        if (ArtifactAnalysisLaunchContext.StartMode == ArtifactAnalysisStart.UserSubmissionFromExcavation &&
+            currentUserSubmission != null)
+        {
+            PopulateUI(currentUserSubmission);
+            SetViewMode(ViewModeUserSubmissionKey);
+            SetStatus(DataLoaded);
+        }
+
+        else
+        {
+            StartCoroutine(LoadAnswerKeyCoroutine(currentArtifactId));
+        }
+    }
+
+    // answer key button logic to switch from user submission to reference
+    public void OnAnswerKeyButtonClicked()
+    {
+        if (string.IsNullOrWhiteSpace(currentArtifactId))
+        {
+            SetStatus(InvalidSelection);
+            return;
+        }
+
+        if (currentAnswerKey != null)
+        {
+            PopulateUI(currentAnswerKey);
+            SetViewMode(ViewModeAnswerKeyKey);
+            SetStatus(DataLoaded);
+            return;
+        }
+
+        StartCoroutine(LoadAnswerKeyCoroutine(currentArtifactId));
+    }
+
+    // user submission button logic to switch from reference to user submission
+    public void OnUserSubmissionButtonClicked()
+    {
+        if (currentUserSubmission == null)
+        {
+            SetStatus(NoArtifactData);
+            return;
+        }
+
+        PopulateUI(currentUserSubmission);
+        SetViewMode(ViewModeUserSubmissionKey);
+        SetStatus(DataLoaded);
+    }
+
+    // continue button to return to excavation scene
+    // ONLY VISIBLE WHEN ANALYSIS IS LAUNCHED FROM EXCAVATION
+    public void OnContinueToExcavationButtonClicked()
+    {
+        ArtifactFormManager formManager = FindFirstObjectByType<ArtifactFormManager>();
+
+        if (formManager != null)
+        {
+            formManager.RestoreAfterAnalysisScene();
+        }
+
+        ArtifactAnalysisLaunchContext.Clear();
+
+        SceneManager.UnloadSceneAsync(gameObject.scene);
+    }
+
+    // coroutine to load answer keys based on user submission artifactId
+    // similar to the coroutine to auto-fill collection form
+    private IEnumerator LoadAnswerKeyCoroutine(string artifactId)
+    {
+        Debug.Log($"[ArtifactAnalysisManager] LoadAnswerKeyCoroutine() started for artifactId='{artifactId}'");
+
+        if (string.IsNullOrWhiteSpace(artifactId))
+        {
+            SetStatus(InvalidSelection);
+            yield break;
+        }
+
+        string url = $"{apiUrl}/reference/{UnityWebRequest.EscapeURL(artifactId)}";
+
+        Debug.Log($"[ArtifactAnalysisManager] Loading answer key from: {url}");
+
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        {
+            request.timeout = 10;
+
+            yield return request.SendWebRequest();
+
+            Debug.Log(
+                $"[ArtifactAnalysisManager] Answer key request finished. " +
+                $"Result={request.result}, Code={request.responseCode}, Text={request.downloadHandler.text}"
+            );
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                string serverText = request.downloadHandler != null
+                    ? request.downloadHandler.text
+                    : "";
+
+                Debug.LogError(
+                    $"Error fetching answer key: " +
+                    $"{request.responseCode} - {request.error} - {serverText}");
+
+                SetStatus(ErrorLoadingList);
+                yield break;
+            }
+
+            SingleArtifactResponse response =
+                JsonUtility.FromJson<SingleArtifactResponse>(request.downloadHandler.text);
+
+            if (response == null || !response.ok || response.artifact == null)
+            {
+                SetStatus(NoArtifactData);
+                yield break;
+            }
+
+            currentAnswerKey = response.artifact;
+            PopulateUI(currentAnswerKey);
+            SetViewMode(ViewModeAnswerKeyKey);
+            SetStatus(DataLoaded);
+        }
+    }
+
+    private void SetViewMode(string key)
+    {
+        _lastViewModeKey = key;
+
+        if (ViewModeText == null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(key))
+        {
+            ViewModeText.text = "";
+            return;
+        }
+
+        ViewModeText.text = LocalizationSettings.StringDatabase.GetLocalizedString(table, key);
+    }
+
+    private void RefreshViewModeText()
+    {
+        if (ViewModeText == null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(_lastViewModeKey))
+        {
+            ViewModeText.text = "";
+            return;
+        }
+
+        ViewModeText.text = LocalizationSettings.StringDatabase.GetLocalizedString(table, _lastViewModeKey);
     }
 }

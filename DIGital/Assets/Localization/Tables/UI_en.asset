@@ -273,7 +273,7 @@ MonoBehaviour:
       m_Items:
       - rid: 745707523204972611
   - m_Id: 757137585106944
-    m_Localized: 'Artifact ID: {id} | {bag} | {date}'
+    m_Localized: 'Artifact ID: {id} | {excavator} | {date}'
     m_Metadata:
       m_Items:
       - rid: 745707523204972611
@@ -408,6 +408,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 31846202103197696
     m_Localized: Enter Object Class...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34109210162524160
+    m_Localized: Answer Key
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34109264260657152
+    m_Localized: User Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34109266890485760
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34110989168177152
+    m_Localized: User Submission
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34111043580882944
+    m_Localized: Answer Key
     m_Metadata:
       m_Items: []
   references:

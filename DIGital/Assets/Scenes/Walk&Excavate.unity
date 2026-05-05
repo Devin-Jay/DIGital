@@ -14804,7 +14804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -467.33374, y: -414.88513}
+  m_AnchoredPosition: {x: -467.33374, y: -414}
   m_SizeDelta: {x: 899.207, y: 65.9086}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &676747625
@@ -20587,7 +20587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &894078663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43796,6 +43796,7 @@ MonoBehaviour:
   ArtifactIdDropdown: {fileID: 1018033924}
   StatusText: {fileID: 676747626}
   PanelRoot: {fileID: 894078662}
+  analysisSceneName: ArtifactAnalysis
   apiUrl: https://digital-ty59.onrender.com/api/artifacts
   table: UI
   errorDetailsKey: artifact_collection_status_error_details
@@ -43808,6 +43809,14 @@ MonoBehaviour:
   surveyScriptsToDisable:
   - {fileID: 257842128}
   - {fileID: 1527703918}
+  - {fileID: 1649285445}
+  excavationUIToHideDuringAnalysis:
+  - {fileID: 1949259072}
+  - {fileID: 2137939139}
+  - {fileID: 548421994}
+  - {fileID: 46888173}
+  - {fileID: 1181669091}
+  - {fileID: 468572795}
 --- !u!4 &1967557270
 Transform:
   m_ObjectHideFlags: 0

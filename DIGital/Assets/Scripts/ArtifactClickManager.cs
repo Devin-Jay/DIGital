@@ -23,6 +23,12 @@ public class ArtifactClickManager : MonoBehaviour
 
     private void Update()
     {
+        // block recording in drone POV
+        if (SurveyModeManager.IsSurveyActive)
+        {
+            return;
+        }
+
         // block when intro is open
         if (WalkExcavateIntroController.IsIntroOpen)
         {
