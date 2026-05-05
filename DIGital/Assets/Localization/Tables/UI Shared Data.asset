@@ -383,6 +383,26 @@ MonoBehaviour:
     m_Key: collection_object_class_input
     m_Metadata:
       m_Items: []
+  - m_Id: 34109210162524160
+    m_Key: analysis_answer_key_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34109264260657152
+    m_Key: analysis_user_entry_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34109266890485760
+    m_Key: analysis_back_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34110989168177152
+    m_Key: analysis_view_mode_text_user_sub
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34111043580882944
+    m_Key: analysis_view_mode_text_answer_key
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

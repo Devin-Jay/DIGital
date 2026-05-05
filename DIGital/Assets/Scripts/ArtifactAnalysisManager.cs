@@ -71,6 +71,10 @@ public class ArtifactAnalysisManager : MonoBehaviour
     [SerializeField] private string SelectAndAnalyze = "analysis_status_select_and_analyze";
     [SerializeField] private string DropdownLabelKey = "analysis_dropdown_label";
     [SerializeField] private string DropdownPlaceholderKey = "analysis_dropdown_placeholder";
+    [SerializeField] private string ViewModeUserSubmissionKey = "analysis_view_mode_text_user_sub";
+    [SerializeField] private string ViewModeAnswerKeyKey = "analysis_view_mode_text_answer_key";
+
+    private string _lastViewModeKey = null;
 
     // re-translation
     private enum StatusMode { None, Key, ServerError }
@@ -138,6 +142,9 @@ public class ArtifactAnalysisManager : MonoBehaviour
 
         // refresh the current status message
         RefreshStatusText();
+
+        // refresh view mode text
+        RefreshViewModeText();
     }
 
     private void RefreshStatusText()
@@ -318,7 +325,7 @@ public class ArtifactAnalysisManager : MonoBehaviour
         currentArtifactId = selectedArtifact.artifact_id;
 
         PopulateUI(selectedArtifact);
-        SetViewMode("User Submission");
+        SetViewMode(ViewModeUserSubmissionKey);
 
         if (UserSubmissionButton != null)
         {
@@ -716,7 +723,7 @@ public class ArtifactAnalysisManager : MonoBehaviour
             currentUserSubmission != null)
         {
             PopulateUI(currentUserSubmission);
-            SetViewMode("User Submission");
+            SetViewMode(ViewModeUserSubmissionKey);
             SetStatus(DataLoaded);
         }
 
@@ -738,7 +745,7 @@ public class ArtifactAnalysisManager : MonoBehaviour
         if (currentAnswerKey != null)
         {
             PopulateUI(currentAnswerKey);
-            SetViewMode("Answer Key");
+            SetViewMode(ViewModeAnswerKeyKey);
             SetStatus(DataLoaded);
             return;
         }
@@ -756,7 +763,7 @@ public class ArtifactAnalysisManager : MonoBehaviour
         }
 
         PopulateUI(currentUserSubmission);
-        SetViewMode("User Submission");
+        SetViewMode(ViewModeUserSubmissionKey);
         SetStatus(DataLoaded);
     }
 
@@ -828,16 +835,42 @@ public class ArtifactAnalysisManager : MonoBehaviour
 
             currentAnswerKey = response.artifact;
             PopulateUI(currentAnswerKey);
-            SetViewMode("Answer Key");
+            SetViewMode(ViewModeAnswerKeyKey);
             SetStatus(DataLoaded);
         }
     }
 
-    private void SetViewMode(string label)
+    private void SetViewMode(string key)
     {
-        if (ViewModeText != null)
+        _lastViewModeKey = key;
+
+        if (ViewModeText == null)
         {
-            ViewModeText.text = label;
+            return;
         }
+
+        if (string.IsNullOrWhiteSpace(key))
+        {
+            ViewModeText.text = "";
+            return;
+        }
+
+        ViewModeText.text = LocalizationSettings.StringDatabase.GetLocalizedString(table, key);
+    }
+
+    private void RefreshViewModeText()
+    {
+        if (ViewModeText == null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(_lastViewModeKey))
+        {
+            ViewModeText.text = "";
+            return;
+        }
+
+        ViewModeText.text = LocalizationSettings.StringDatabase.GetLocalizedString(table, _lastViewModeKey);
     }
 }
