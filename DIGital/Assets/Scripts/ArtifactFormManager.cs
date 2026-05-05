@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 // class
 public class ArtifactFormManager : MonoBehaviour
@@ -33,6 +34,10 @@ public class ArtifactFormManager : MonoBehaviour
     [SerializeField] private TMP_Text StatusText;
     [SerializeField] private GameObject PanelRoot;
 
+    // analysis scene
+    [Header("Analysis Scene")]
+    [SerializeField] private string analysisSceneName = "ArtifactAnalysis";
+
     // api settings
     [Header("API Settings")]
     [SerializeField] private string apiUrl = 
@@ -55,6 +60,12 @@ public class ArtifactFormManager : MonoBehaviour
     [Header("Input Suspension")]
     [SerializeField] private MonoBehaviour[] playerScriptsToDisable;
     [SerializeField] private MonoBehaviour[] surveyScriptsToDisable;
+
+    // excavation UI to hide during analysis
+    [Header("Excavation UI To Hide During Analysis")]
+    [SerializeField] private GameObject[] excavationUIToHideDuringAnalysis;
+    private readonly Dictionary<GameObject, bool> savedExcavationUIStates =
+        new Dictionary<GameObject, bool>();
 
     private readonly Dictionary<MonoBehaviour, bool> savedScriptStates = new Dictionary<MonoBehaviour, bool>();
 
@@ -279,16 +290,21 @@ public class ArtifactFormManager : MonoBehaviour
     {
         Debug.Log("[ArtifactFormManager] Continue confirmed");
 
-        if (currentArtifactInteractable != null)
+        string artifactId = GetSelectedArtifactId();
+
+        if (string.IsNullOrWhiteSpace(artifactId))
         {
-            currentArtifactInteractable.MarkAsRecorded();
-            currentArtifactInteractable = null;
+            SetStatus("artifact_collection_status_invalid_artifact_id");
+            return;
         }
 
-        // clear, reset, and close form
-        ClearForm();
-        ResetStatusUI();
-        CloseForm();
+        // artfiact analysis flow 
+        ArtifactAnalysisLaunchContext.StartMode = ArtifactAnalysisStart.AnswerKeyFromExcavation;
+        ArtifactAnalysisLaunchContext.UserSubmission = null;
+        ArtifactAnalysisLaunchContext.ArtifactId = artifactId;
+
+        FinishArtifactBeforeAnalysisScene();
+        LoadAnalysisSceneAdditive();
     }
 
     // no button in warning
@@ -351,17 +367,23 @@ public class ArtifactFormManager : MonoBehaviour
                         request.downloadHandler.text);
     #endif
 
-                SetStatus("artifact_collection_status_success");
+                SingleArtifactResponse response =
+                    JsonUtility.FromJson<SingleArtifactResponse>(request.downloadHandler.text);
 
-                ClearForm();
-
-                if (currentArtifactInteractable != null)
+                if (response == null || !response.ok || response.artifact == null)
                 {
-                    currentArtifactInteractable.MarkAsRecorded();
-                    currentArtifactInteractable = null;
+                    SetStatusErrorWithDetails("Artifact was submitted, but the response could not be loaded.");
+                    yield break;
                 }
 
-                CloseForm();
+                SetStatus("artifact_collection_status_success");
+
+                ArtifactAnalysisLaunchContext.StartMode = ArtifactAnalysisStart.UserSubmissionFromExcavation;
+                ArtifactAnalysisLaunchContext.UserSubmission = response.artifact;
+                ArtifactAnalysisLaunchContext.ArtifactId = response.artifact.artifact_id;
+
+                FinishArtifactBeforeAnalysisScene();
+                LoadAnalysisSceneAdditive();
             }
 
             else
@@ -372,6 +394,55 @@ public class ArtifactFormManager : MonoBehaviour
                 SetStatusErrorWithDetails(details);
             }
         }
+    }
+
+    private void FinishArtifactBeforeAnalysisScene()
+    {
+        if (currentArtifactInteractable != null)
+        {
+            currentArtifactInteractable.MarkAsRecorded();
+            currentArtifactInteractable = null;
+        }
+
+        ClearForm();
+        ResetStatusUI();
+        HideContinueWarning();
+
+        if (PanelRoot != null)
+        {
+            PanelRoot.SetActive(false);
+        }
+
+        HideExcavationUIForAnalysis();
+
+        // moving into an additive ArtifactAnalysis scene
+        // keep gameplay scripts disabled until Analysis Continue is clicked.
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    // load additive analysis scene
+    private void LoadAnalysisSceneAdditive()
+    {
+        Scene existingScene = SceneManager.GetSceneByName(analysisSceneName);
+
+        if (existingScene.IsValid() && existingScene.isLoaded)
+        {
+            Debug.LogWarning($"[ArtifactFormManager] {analysisSceneName} is already loaded.");
+            return;
+        }
+
+        SceneManager.LoadScene(analysisSceneName, LoadSceneMode.Additive);
+    }
+
+    // called by ArtifactAnalysisManager when the temporary Analysis Continue button is clicked.
+    public void RestoreAfterAnalysisScene()
+    {
+        RestoreExcavationUIAfterAnalysis();
+        RestoreScriptsAfterForm();
+        RestoreCursorAfterForm();
+        Time.timeScale = 1f;
     }
 
     // coroutine to fetch and auto-fill the form
@@ -655,5 +726,39 @@ public class ArtifactFormManager : MonoBehaviour
         }
 
         StartCoroutine(LoadReferenceArtifactCoroutine(selectedId));
+    }
+
+    // hide excavation ui
+    private void HideExcavationUIForAnalysis()
+    {
+        savedExcavationUIStates.Clear();
+
+        if (excavationUIToHideDuringAnalysis == null) return;
+
+        foreach (GameObject UIObject in excavationUIToHideDuringAnalysis)
+        {
+            if (UIObject == null) continue;
+
+            if (!savedExcavationUIStates.ContainsKey(UIObject))
+            {
+                savedExcavationUIStates[UIObject] = UIObject.activeSelf;
+            }
+
+            UIObject.SetActive(false);
+        }
+    }
+
+    // restore excavation ui
+    private void RestoreExcavationUIAfterAnalysis()
+    {
+        foreach (var pair in savedExcavationUIStates)
+        {
+            if (pair.Key != null)
+            {
+                pair.Key.SetActive(pair.Value);
+            }
+        }
+
+        savedExcavationUIStates.Clear();
     }
 }
