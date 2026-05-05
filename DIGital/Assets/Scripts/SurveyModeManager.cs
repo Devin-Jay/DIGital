@@ -30,6 +30,14 @@ public class SurveyModeManager : MonoBehaviour
 
     public bool IsSurveyModeActive { get; private set; }
 
+    public static bool IsSurveyActive
+    {
+        get
+        {
+            return Instance != null && Instance.IsSurveyModeActive;
+        }
+    }
+
     private CursorLockMode previousLockState;
     private bool previousCursorVisible;
 
