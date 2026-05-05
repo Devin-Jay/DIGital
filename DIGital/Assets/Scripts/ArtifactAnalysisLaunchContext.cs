@@ -15,7 +15,7 @@ public static class ArtifactAnalysisLaunchContext
 {
     public static ArtifactAnalysisStart StartMode = ArtifactAnalysisStart.FinalAnalysis;
     
-    public static ArtifactRecord UserSubmisson;
+    public static ArtifactRecord UserSubmission;
     public static string ArtifactId;
 
     // see where analysis scene was launched
@@ -32,7 +32,7 @@ public static class ArtifactAnalysisLaunchContext
     public static void Clear()
     {
         StartMode = ArtifactAnalysisStart.FinalAnalysis;
-        UserSubmisson = null;
+        UserSubmission = null;
         ArtifactId = null;
     }
 }
