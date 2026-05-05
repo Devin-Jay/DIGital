@@ -334,6 +334,22 @@ public class UnitMarkerSystem : MonoBehaviour
             foreach (var existing in activeUnits)
                 if (existing.ContainsCell(cell)) { CancelPending(); return; }
 
+        // Validity check — every cell must have at least one DiggableEarth section
+        DiggableEarth[] allSections = FindObjectsByType<DiggableEarth>(FindObjectsSortMode.None);
+        HashSet<Vector2Int> diggableCells = new HashSet<Vector2Int>();
+        foreach (var section in allSections)
+            diggableCells.Add(WorldToCell(section.transform.position));
+
+        foreach (var cell in cells)
+        {
+            if (!diggableCells.Contains(cell))
+            {
+                Debug.Log($"[UnitMarkerSystem] Cell {cell} has no diggable earth — cancelling unit.");
+                CancelPending();
+                return;
+            }
+        }
+
         ConfirmUnit(cells, minX, maxX, minZ, maxZ);
     }
 
