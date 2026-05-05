@@ -26,7 +26,6 @@ export default function Game() {
           productVersion: '1.0',
         }
 
-        // Load Unity loader script
         if (!window.createUnityInstance) {
           const script = document.createElement('script')
           script.src = `${buildUrl}/WebGL.loader.js`
@@ -38,7 +37,6 @@ export default function Game() {
           })
         }
 
-        // Create Unity instance
         const instance = await window.createUnityInstance(canvasRef.current, config, (progress) => {
           setLoadingProgress(Math.round(progress * 100))
         })
@@ -53,7 +51,6 @@ export default function Game() {
 
     loadUnityGame()
 
-    // Cleanup
     return () => {
       if (unityInstance) {
         unityInstance.Quit()
@@ -61,19 +58,24 @@ export default function Game() {
     }
   }, [])
 
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement)
+    }
+    document.addEventListener('fullscreenchange', handleFullscreenChange)
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange)
+  }, [])
+
   const toggleFullscreen = () => {
-    if (!isFullscreen) {
+    if (!document.fullscreenElement) {
       unityInstance?.SetFullscreen(1)
-      setIsFullscreen(true)
     } else {
       unityInstance?.SetFullscreen(0)
-      setIsFullscreen(false)
     }
   }
 
   return (
     <div className="game-page">
-      {/* Navigation Bar */}
       <nav className="game-nav">
         <a href="/" className="back-link">{t('game.backHome')}</a>
         <h1>{t('game.title')}</h1>
@@ -85,7 +87,6 @@ export default function Game() {
         </div>
       </nav>
 
-      {/* Game Container */}
       <div className="game-container">
         <div className="game-wrapper">
           {isLoading && (
@@ -111,13 +112,15 @@ export default function Game() {
           ></canvas>
         </div>
 
-        {/* Game Info Sidebar */}
         <div className="game-info">
           <div className="info-section">
             <h3>{t('game.controls')}</h3>
             <ul>
               <li><strong>WASD</strong> - {t('game.move')}</li>
               <li><strong>Mouse</strong> - {t('game.look')}</li>
+              <li><strong>TAB</strong> - {t('game.aiAssistant')}</li>
+              <li><strong>M</strong> - {t('game.openMenu')}</li>
+              <li><strong>U</strong> - {t('game.unitMarking')}</li>
             </ul>
           </div>
 
@@ -128,6 +131,11 @@ export default function Game() {
               <li>{t('game.obj2')}</li>
               <li>{t('game.obj3')}</li>
               <li>{t('game.obj4')}</li>
+              <li>{t('game.obj5')}</li>
+              <li>{t('game.obj6')}</li>
+              <li>{t('game.obj7')}</li>
+              <li>{t('game.obj8')}</li>
+              <li>{t('game.obj9')}</li>
             </ul>
           </div>
 
@@ -142,7 +150,6 @@ export default function Game() {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="game-footer">
         <p>
           {t('game.footerHelp')} <a href="/tutorial">{t('game.tutorial')}</a>

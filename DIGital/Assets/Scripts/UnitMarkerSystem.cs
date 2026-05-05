@@ -33,6 +33,9 @@ public class UnitMarkerSystem : MonoBehaviour
     [SerializeField] private GameObject unitLabelPanel;
     [SerializeField] private TextMeshProUGUI unitLabelText;
 
+    [Header("Intro Popup")]
+    [SerializeField] private UnitMarkingIntroController introController;
+
     // ── State ────────────────────────────────────────────────────────────────
     public bool IsActive { get; private set; } = false;
     public bool CanPlayerDig => IsActive && activeUnits.Count > 0;
@@ -74,6 +77,7 @@ public class UnitMarkerSystem : MonoBehaviour
     private void Update()
     {
         if (!IsPlacingStakes) return;
+        if (UnitMarkingIntroController.IsIntroOpen) return;
         UpdatePreviewStake();
         if (Input.GetMouseButtonDown(0)) TryPlaceStake();
     }
@@ -81,6 +85,9 @@ public class UnitMarkerSystem : MonoBehaviour
     private void LateUpdate()
     {
         if (!IsActive) return;
+    
+        if (UnitMarkingIntroController.IsIntroOpen) return;
+    
         if (!IsPlacingStakes && Input.GetKeyDown(KeyCode.U))
         {
             DiggableEarth[] remaining = FindObjectsByType<DiggableEarth>(FindObjectsSortMode.None);
@@ -94,7 +101,8 @@ public class UnitMarkerSystem : MonoBehaviour
 
             EnterStakePlacingMode();
         }
-    }   
+    }
+   
 
     // ── Public API ───────────────────────────────────────────────────────────
 
@@ -107,10 +115,21 @@ public class UnitMarkerSystem : MonoBehaviour
             firstPersonController = FindFirstObjectByType<FirstPersonController>();
 
         ScanGridFromScene();
-        EnterStakePlacingMode();
+
+        Debug.Log($"[UnitMarkerSystem] introController is: {(introController == null ? "NULL" : introController.name)}");
+
+        if (introController != null)
+        {
+            introController.OpenIntro();
+        }
+        else
+        {
+            EnterStakePlacingMode();
+        }
 
         Debug.Log($"[UnitMarkerSystem] Phase started. Grid origin: {gridOrigin}, Corners: {validCorners.Count}");
     }
+    
 
     public void EnterStakePlacingMode()
     {
@@ -163,7 +182,6 @@ public class UnitMarkerSystem : MonoBehaviour
             ExcavationUnit unit = activeUnits[i];
             if (!unit.ContainsCell(cell)) continue;
 
-            // Check if ALL columns in the unit are empty (not just the current one)
             bool anyColumnRemaining = AnyColumnRemainingInEntireUnit(unit, sectionWorldPos);
 
             Debug.Log($"[UnitMarkerSystem] Cell {cell} dug at layer {layerIndex}. Any column remaining in unit: {anyColumnRemaining}");
@@ -191,7 +209,6 @@ public class UnitMarkerSystem : MonoBehaviour
         {
             foreach (var section in allSections)
             {
-                // Use approximate comparison instead of exact Vector3 equality
                 if (Vector3.Distance(section.transform.position, excludeWorldPos) < 0.01f) continue;
                 if (WorldToCell(section.transform.position) == cell) return true;
             }
@@ -206,7 +223,6 @@ public class UnitMarkerSystem : MonoBehaviour
         validCorners.Clear();
         gridOriginSet = false;
 
-        // Find all layers and identify the topmost one by Y position
         DiggableEarthLayer[] layers = FindObjectsByType<DiggableEarthLayer>(FindObjectsSortMode.None);
 
         float highestY = float.MinValue;
@@ -226,7 +242,6 @@ public class UnitMarkerSystem : MonoBehaviour
             return;
         }
 
-        // Anchor grid origin XZ from the first child of the topmost layer
         Vector3 first = topLayer.transform.GetChild(0).position;
         gridOrigin = new Vector3(
             first.x - gridSize * 0.5f,
@@ -235,7 +250,6 @@ public class UnitMarkerSystem : MonoBehaviour
         );
         gridOriginSet = true;
 
-        // Scan ALL DiggableEarth sections to build the valid corner set
         DiggableEarth[] allSections = FindObjectsByType<DiggableEarth>(FindObjectsSortMode.None);
         if (allSections.Length == 0)
         {
@@ -299,7 +313,7 @@ public class UnitMarkerSystem : MonoBehaviour
         int minZ = Mathf.Min(c0.y, c1.y);
         int maxZ = Mathf.Max(c0.y, c1.y);
 
-        // Must be diagonally opposite — same row or column is invalid
+        // Must be diagonally opposite 
         if (minX == maxX || minZ == maxZ)
         {
             Debug.Log("[UnitMarkerSystem] Stakes are in the same row or column — cancelling. Place a diagonal corner.");
@@ -335,7 +349,6 @@ public class UnitMarkerSystem : MonoBehaviour
             new Vector2Int(minX, maxZ),
         };
 
-        // Compute unit center in world space
         Vector3 unitCenter = new Vector3(
             gridOrigin.x + (minX + maxX) * 0.5f * gridSize,
             gridOrigin.y,

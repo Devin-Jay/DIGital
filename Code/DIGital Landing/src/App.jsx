@@ -172,32 +172,54 @@ function LandingPage() {
         </div>
       </section>
 
+      <section id="dr-sharp" className="dr-sharp">
+        <div className="container">
+          <h2>{t('drSharp.heading')}</h2>
+          <p className="section-subtitle">{t('drSharp.subtitle')}</p>
+          <div className="dr-sharp-content">
+            <div className="dr-sharp-text">
+              <ul className="dr-sharp-list">
+                <li>{t('drSharp.fact1')}</li>
+                <li>{t('drSharp.fact2')}</li>
+                <li>{t('drSharp.fact3')}</li>
+              </ul>
+            </div>
+            <div className="dr-sharp-photo">
+              <div className="dr-sharp-placeholder">
+                <span>📷</span>
+                <p>Photo Coming Soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="team" className="team">
         <div className="container">
           <h2>{t('team.heading')}</h2>
           <p className="section-subtitle">{t('team.subtitle')}</p>
-            <div className="team-grid">
-              <div className="team-member">
-                <img src="/Devin.JPEG" alt="Devin Jay San Nicolas" className="member-photo" />
-                <h3>Devin Jay San Nicolas</h3>
-                <p>{t('team.dj')}</p>
-              </div>
-              <div className="team-member">
-                <img src="/Ryan.jpg" alt="Ryan Wood" className="member-photo" />
-                <h3>Ryan Wood</h3>
-                <p>{t('team.rw')}</p>
-              </div>
-              <div className="team-member">
-                <img src="/Tate.jpg" alt="Tate Whittaker" className="member-photo" />
-                <h3>Tate Whittaker</h3>
-                <p>{t('team.tw')}</p>
-              </div>
-              <div className="team-member">
+          <div className="team-grid">
+            <div className="team-member">
+              <img src="/Devin.JPEG" alt="Devin Jay San Nicolas" className="member-photo" />
+              <h3>Devin Jay San Nicolas</h3>
+              <p>{t('team.dj')}</p>
+            </div>
+            <div className="team-member">
+              <img src="/Ryan.jpg" alt="Ryan Wood" className="member-photo" />
+              <h3>Ryan Wood</h3>
+              <p>{t('team.rw')}</p>
+            </div>
+            <div className="team-member">
+              <img src="/Tate.jpg" alt="Tate Whittaker" className="member-photo" />
+              <h3>Tate Whittaker</h3>
+              <p>{t('team.tw')}</p>
+            </div>
+            <div className="team-member">
               <img src="/Jarom.jpg" alt="Jarom Craghead" className="member-photo" />
               <h3>Jarom Craghead</h3>
               <p>{t('team.jc')}</p>
-              </div>
             </div>
+          </div>
           <div className="client-section">
             <h3>{t('team.collab')}</h3>
             <p className="client-name">Dr. Kayleigh Sharp</p>
